@@ -10,8 +10,16 @@ const routes: Routes = [
     path: '',
     component: OldWayComponent,
     children: [
-      { path: 'bar', component: OldWayBarComponent },
-      { path: 'foo', component: OldWayFooComponent },
+      {
+        path: 'bar',
+        component: OldWayBarComponent,
+        data: { title: 'Old Way Bar' },
+      },
+      {
+        path: 'foo',
+        component: OldWayFooComponent,
+        data: { title: 'Old Way Foo' },
+      },
     ],
   },
 ];
