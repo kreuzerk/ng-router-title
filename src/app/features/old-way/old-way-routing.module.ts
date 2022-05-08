@@ -9,6 +9,7 @@ const routes: Routes = [
   {
     path: '',
     component: OldWayComponent,
+    data: { title: 'Old Way Component' },
     children: [
       {
         path: 'bar',

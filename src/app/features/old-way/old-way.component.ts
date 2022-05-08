@@ -16,21 +16,17 @@ export class OldWayComponent implements OnInit {
       .pipe(
         filter((event) => event instanceof NavigationEnd),
         map(() => {
-          let route: ActivatedRoute = this.router.routerState.root;
+          let activatedRoute: ActivatedRoute = this.router.routerState.root;
           let routeTitle = '';
-          while (route!.firstChild) {
-            route = route.firstChild;
+          while (activatedRoute!.firstChild) {
+            activatedRoute = activatedRoute.firstChild;
           }
-          if (route.snapshot.data['title']) {
-            routeTitle = route!.snapshot.data['title'];
+          if (activatedRoute.snapshot.data['title']) {
+            routeTitle = activatedRoute!.snapshot.data['title'];
           }
           return routeTitle;
         })
       )
-      .subscribe((title: string) => {
-        if (title) {
-          this.titleService.setTitle(title);
-        }
-      });
+      .subscribe((title) => this.titleService.setTitle(title));
   }
 }
